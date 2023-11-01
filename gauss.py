@@ -2,8 +2,8 @@ from math import exp, pi
 
 u = float(input('Mean = '))
 s = float(input('Standard Deviation = '))
-a = float(input('Lower limit = '))
-b = float(input('Upper limit = '))
+a = u-s
+b = u+s
 n = 100
 
 def f(x):
