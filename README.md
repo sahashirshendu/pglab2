@@ -1,2 +1,1 @@
-# pglab2
-PG Lab II
+# PG Lab II
