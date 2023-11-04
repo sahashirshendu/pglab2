@@ -9,7 +9,7 @@ n=5000
 def f(x):
     return 1/(2*pi*s**2)**.5 * exp(-((x-u)/s)**2/2)
 
-x=linspace(0,200,2000)
+x=linspace(0,200,5000)
 for b in x:
     # Composite Trapezoid
     h=(b-a)/n
