@@ -17,6 +17,6 @@ for b in x:
     for i in range(1,n):
         sum=sum+2*f(a+i*h)
     sum=h/2*sum
-    if 0.835<=sum:
+    if sum>=.835:
         print('Value of d is',b)
         break
