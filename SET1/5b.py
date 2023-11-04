@@ -1,5 +1,4 @@
-from math import exp, pi
-from numpy import linspace
+from numpy import *
 
 u=120 # mean
 s=20 # standard deviation

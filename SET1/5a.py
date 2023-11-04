@@ -1,4 +1,4 @@
-from math import exp, pi
+from math import *
 
 u=120 # mean
 s=20 # standard deviation
