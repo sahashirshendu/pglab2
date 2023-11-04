@@ -9,7 +9,7 @@ n=5000
 def f(x):
     return 1/(2*pi*s**2)**.5 * exp(-((x-u)/s)**2/2)
 
-x=linspace(0,500,5000)
+x=linspace(0,200,2000)
 for b in x:
     # Composite Trapezoid
     h=(b-a)/n
@@ -17,7 +17,6 @@ for b in x:
     for i in range(1,n):
         sum=sum+2*f(a+i*h)
     sum=h/2*sum
-    print(b,abs(sum-0.835))
     if abs(sum-0.835)<=1e-3:
         print('Value of d is',b)
         break
