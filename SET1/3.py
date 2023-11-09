@@ -28,28 +28,16 @@ def determinant(a,n):
         sign=-sign
     return D
 
-def adjoint(a,adj):
-    if N==1:
-        adj[0][0]=1
+def inverse(a,inv):
     sign=1
     temp=zeros((N,N))
     for i in range(N):
         for j in range(N):
             cofactor(a,temp,i,j,N)
             sign=[1,-1][(i+j)%2]
-            adj[j][i]=sign*(determinant(temp, N-1))
+            inv[j][i]=sign*(determinant(temp, N-1))/determinant(a,N)
 
-def inverse(a,inv):
-    det=determinant(a,N)
-    adj=zeros((N,N))
-    adjoint(a, adj)
-    for i in range(N):
-        for j in range(N):
-            inv[i][j]=adj[i][j]/det
-
-adj=zeros((N,N))
 ai=zeros((N,N))
-adjoint(a, adj)
 inverse(a, ai)
 x=zeros((N,1))
 for i in range(N):
