@@ -7,13 +7,13 @@ y=xy[:,1]
 x1s=sum(x)
 x2s=0
 ys=sum(y)
-yxs=0
+yx1s=0
 for i in range(len(x)):
     x2s=x2s+x[i]**2
-    yxs=yxs+x[i]*y[i]
+    yx1s=yx1s+x[i]*y[i]
 
 a=[[len(x),x1s],[x1s,x2s]]
-b=[[ys],[yxs]]
+b=[[ys],[yx1s]]
 N=len(a)
 
 def cofactor(a,temp,p,q,n):
