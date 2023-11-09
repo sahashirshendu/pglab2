@@ -21,7 +21,7 @@ for i in range(len(x)):
     yx2s=yx2s+x[i]**2*y[i]
 
 a=[[len(x),x1s,x2s],[x1s,x2s,x3s],[x2s,x3s,x4s]]
-b=[[ys],[yx1s],[yx2s]]
+c=[[ys],[yx1s],[yx2s]]
 N=len(a)
 
 def cofactor(a,temp,p,q,n):
@@ -57,12 +57,12 @@ for i in range(N):
         sign=[1,-1][(i+j)%2]
         ai[j][i]=sign*determinant(temp, N-1)/determinant(a,N)
 
-s=zeros((N,1))
+b=zeros((N,1))
 for i in range(N):
    for j in range(1):
        for k in range(N):
-           s[i][j]=s[i][j]+ai[i][k]*b[k][j]
+           b[i][j]=b[i][j]+ai[i][k]*c[k][j]
 
-print('Coefficients of x**0=',s[0])
-print('Coefficients of x**1=',s[1])
-print('Coefficients of x**2=',s[2])
+print('Coefficients of x**0=',b[0])
+print('Coefficients of x**1=',b[1])
+print('Coefficients of x**2=',b[2])
