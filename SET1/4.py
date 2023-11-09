@@ -53,7 +53,7 @@ for i in range(N):
     for j in range(N):
         cofactor(a,temp,i,j,N)
         sign=[1,-1][(i+j)%2]
-        ai[j][i]=sign*(determinant(temp, N-1))/determinant(a,N)
+        ai[j][i]=sign*determinant(temp, N-1)/determinant(a,N)
 
 s=zeros((N,1))
 for i in range(N):
