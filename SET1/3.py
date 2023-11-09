@@ -51,11 +51,11 @@ def inverse(a,inv):
 
 ai=zeros((N,N))
 inverse(a, ai)
-x=zeros((N,1))
+s=zeros((N,1))
 for i in range(N):
    for j in range(1):
        for k in range(N):
-           x[i][j]=x[i][j]+ai[i][k]*b[k][j]
+           s[i][j]=s[i][j]+ai[i][k]*b[k][j]
 
-print('Coefficients of x**0=',x[0])
-print('Coefficients of x**1=',x[1])
+print('Coefficients of x**0=',s[0])
+print('Coefficients of x**1=',s[1])
