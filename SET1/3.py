@@ -22,8 +22,8 @@ def cofactor(a,temp,p,q,n):
     for k in range(n):
         for m in range(n):
             if k!=p and m!=q:
-                temp[i][j] = a[k][m]
-                j += 1
+                temp[i][j]=a[k][m]
+                j=j+1
                 if j==n-1:
                     j=0
                     i=i+1
