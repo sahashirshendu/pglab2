@@ -38,9 +38,6 @@ def adjoint(A, adj):
             adj[j][i] = (sign)*(determinant(temp, N-1))
 def inverse(A, inverse):
     det = determinant(A, N)
-    if (det == 0):
-        print("Singular matrix, can't find its inverse")
-        return False
     adj = []
     for i in range(N):
         adj.append([None for _ in range(N)])
@@ -48,7 +45,7 @@ def inverse(A, inverse):
     for i in range(N):
         for j in range(N):
             inverse[i][j] = adj[i][j] / det
-    return True
+    return
 def display(A):
     for i in range(N):
         for j in range(N):
@@ -71,5 +68,5 @@ print("\nThe Adjoint is :")
 adjoint(A, adj)
 display(adj)
 print("\nThe Inverse is :")
-if (inverse(A, inv)):
-    displays(inv)
+inverse(A, inv)
+displays(inv)
