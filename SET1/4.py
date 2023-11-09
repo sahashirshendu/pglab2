@@ -4,17 +4,19 @@ xy=loadtxt('4.txt')
 x=xy[:,0]
 y=xy[:,1]
 
-x1s=sum(x)
+x1s=0
 x2s=0
 x3s=0
 x4s=0
-ys=sum(y)
+ys=0
 yx1s=0
 yx2s=0
 for i in range(len(x)):
+    x1s=x1s+x[i]
     x2s=x2s+x[i]**2
     x3s=x3s+x[i]**3
     x4s=x4s+x[i]**4
+    ys=ys+y[i]
     yx1s=yx1s+x[i]*y[i]
     yx2s=yx2s+x[i]**2*y[i]
 

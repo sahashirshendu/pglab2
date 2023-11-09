@@ -4,12 +4,14 @@ xy=loadtxt('3.txt')
 x=xy[:,0]
 y=xy[:,1]
 
-x1s=sum(x)
+x1s=0
 x2s=0
-ys=sum(y)
+ys=0
 yx1s=0
 for i in range(len(x)):
+    x1s=x1s+x[i]
     x2s=x2s+x[i]**2
+    ys=ys+y[i]
     yx1s=yx1s+x[i]*y[i]
 
 a=[[len(x),x1s],[x1s,x2s]]
