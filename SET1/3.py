@@ -1,72 +1,61 @@
-N = 4
-def getCofactor(A, temp, p, q, n):
-    i = 0
-    j = 0
-    for row in range(n):
-        for col in range(n):
-            if (row != p and col != q):
-                temp[i][j] = A[row][col]
+from numpy import loadtxt,zeros
+
+a=[[7,59],[59,555]]
+b=[[119.1],[1123.3]]
+N=len(a)
+
+def cofactor(a,temp,p,q,n):
+    i=0
+    j=0
+    for k in range(n):
+        for m in range(n):
+            if k!=p and m!=q:
+                temp[i][j] = a[k][m]
                 j += 1
-                if (j == n - 1):
-                    j = 0
-                    i += 1
-def determinant(A, n):
-    D = 0
-    if (n == 1):
-        return A[0][0]
-    temp = []
-    for i in range(N):
-        temp.append([None for _ in range(N)])
-    sign = 1
+                if j==n-1:
+                    j=0
+                    i=i+1
+
+def determinant(a,n):
+    D=0
+    if n==1:
+        return a[0][0]
+    temp=zeros((N,N))
+    sign=1
     for f in range(n):
-        getCofactor(A, temp, 0, f, n)
-        D += sign * A[0][f] * determinant(temp, n - 1)
-        sign = -sign
+        cofactor(a,temp,0,f,n)
+        D=D+sign*a[0][f]*determinant(temp,n-1)
+        sign=-sign
     return D
-def adjoint(A, adj):
-    if (N == 1):
-        adj[0][0] = 1
-        return
-    sign = 1
-    temp = []
-    for i in range(N):
-        temp.append([None for _ in range(N)])
+
+def adjoint(a,adj):
+    if N==1:
+        adj[0][0]=1
+    sign=1
+    temp=zeros((N,N))
     for i in range(N):
         for j in range(N):
-            getCofactor(A, temp, i, j, N)
-            sign = [1, -1][(i + j) % 2]
-            adj[j][i] = (sign)*(determinant(temp, N-1))
-def inverse(A, inverse):
-    det = determinant(A, N)
-    adj = []
-    for i in range(N):
-        adj.append([None for _ in range(N)])
-    adjoint(A, adj)
-    for i in range(N):
-        for j in range(N):
-            inverse[i][j] = adj[i][j] / det
-    return
-def display(A):
+            cofactor(a,temp,i,j,N)
+            sign=[1,-1][(i+j)%2]
+            adj[j][i]=sign*(determinant(temp, N-1))
+
+def inverse(a,inv):
+    det=determinant(a,N)
+    adj=zeros((N,N))
+    adjoint(a, adj)
     for i in range(N):
         for j in range(N):
-            print(A[i][j], end=" ")
-        print()
-def displays(A):
-    for i in range(N):
-        for j in range(N):
-            print(round(A[i][j], 6), end=" ")
-        print()
-A = [[5, -2, 2, 7], [1, 0, 0, 3], [-3, 1, 5, 0], [3, -1, -9, 4]]
-adj = [None for _ in range(N)]
-inv = [None for _ in range(N)]
+            inv[i][j]=adj[i][j]/det
+
+adj=zeros((N,N))
+ai=zeros((N,N))
+adjoint(a, adj)
+inverse(a, ai)
+x=zeros((N,1))
 for i in range(N):
-    adj[i] = [None for _ in range(N)]
-    inv[i] = [None for _ in range(N)]
-print("Input matrix is :")
-display(A)
-print("\nThe Adjoint is :")
-adjoint(A, adj)
-display(adj)
-print("\nThe Inverse is :")
-inverse(A, inv)
-displays(inv)
+   for j in range(1):
+       for k in range(N):
+           x[i][j] = x[i][j] + ai[i][k] * b[k][j]
+
+print('Coefficients of x**0=',x[0])
+print('Coefficients of x**1=',x[1])
