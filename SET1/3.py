@@ -1,7 +1,19 @@
-from numpy import loadtxt,zeros
+from numpy import *
 
-a=[[7,59],[59,555]]
-b=[[119.1],[1123.3]]
+xy=loadtxt('3.txt')
+x=xy[:,0]
+y=xy[:,1]
+
+x1s=sum(x)
+x2s=0
+ys=sum(y)
+yxs=0
+for i in range(len(x)):
+    x2s=x2s+x[i]**2
+    yxs=yxs+x[i]*y[i]
+
+a=[[len(x),x1s],[x1s,x2s]]
+b=[[ys],[yxs]]
 N=len(a)
 
 def cofactor(a,temp,p,q,n):
@@ -43,7 +55,7 @@ x=zeros((N,1))
 for i in range(N):
    for j in range(1):
        for k in range(N):
-           x[i][j] = x[i][j] + ai[i][k] * b[k][j]
+           x[i][j]=x[i][j]+ai[i][k]*b[k][j]
 
 print('Coefficients of x**0=',x[0])
 print('Coefficients of x**1=',x[1])
