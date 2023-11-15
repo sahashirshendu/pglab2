@@ -18,39 +18,10 @@ a=[[len(x),x1s],[x1s,x2s]]
 c=[[ys],[yx1s]]
 N=len(a)
 
-def cofactor(a,temp,p,q,n):
-    i=0
-    j=0
-    for k in range(n):
-        for m in range(n):
-            if k!=p and m!=q:
-                temp[i][j]=a[k][m]
-                j=j+1
-                if j==n-1:
-                    j=0
-                    i=i+1
-
-def determinant(a,n):
-    D=0
-    if n==1:
-        return a[0][0]
-    temp=zeros((N,N))
-    sign=1
-    for f in range(n):
-        cofactor(a,temp,0,f,n)
-        D=D+sign*a[0][f]*determinant(temp,n-1)
-        sign=-sign
-    return D
-
+det=a[0][0]*a[1][1]-a[0][1]*a[1][0]
 sign=1
-temp=zeros((N,N))
-ai=zeros((N,N))
-for i in range(N):
-    for j in range(N):
-        cofactor(a,temp,i,j,N)
-        sign=[1,-1][(i+j)%2]
-        ai[j][i]=sign*determinant(temp, N-1)/determinant(a,N)
-
+adj=[[a[1][1],-a[1][0]],[-a[0][1],a[0][0]]]
+ai=adj/det
 b=zeros((N,1))
 for i in range(N):
    for j in range(1):
