@@ -31,20 +31,11 @@ for i in range(N):
        for k in range(N):
            b[i][j]=b[i][j]+ai[i][k]*c[k][j]
 
-sum=0
-for i in range(len(x)):
-    sum=sum+(y[i]-b[0]-b[1]*x[i])**2
-sd=sqrt(1/(len(x)-2)*sum)
-sumx1=0
-sumx2=0
-for i in range(len(x)):
-    sumx1=sumx1+x[i]
-    sumx2=sumx2+x[i]**2
-delta=len(x)*sumx2-sumx1**2
-ber=[sd*sqrt(sumx2/delta),sd*sqrt(len(x)/delta)]
+delta=lx*x2s-x1s**2
+ber=[sqrt(x2s/delta),sqrt(lx/delta)]
 
-print('Coefficients of x**0=',b[0],'+-',ber[0])
-print('Coefficients of x**1=',b[1],'+-',ber[1])
+print('Coefficients of x**0=',b[0][0],'+-',ber[0])
+print('Coefficients of x**1=',b[1][0],'+-',ber[1])
 
 errorbar(x,y,yerr=er,fmt='.')
 plot(x,b[0]+b[1]*x)
