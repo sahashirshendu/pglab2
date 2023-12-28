@@ -56,9 +56,9 @@ for i in range(N):
 
 b=zeros((N,1))
 for i in range(N):
-   for j in range(1):
-       for k in range(N):
-           b[i][j]=b[i][j]+ai[i][k]*c[k][j]
+    for j in range(1):
+        for k in range(N):
+            b[i][j]=b[i][j]+ai[i][k]*c[k][j]
 
 delta=lx*x2s-x1s**2
 ber=[sqrt(x2s/delta),sqrt(lx/delta)]
