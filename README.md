@@ -13,4 +13,4 @@ PG Lab II `python` code.
     - [5.(a)](./SET1/5a.py)
     - [5.(b)](./SET1/5b.py)
     - [5.(c)](./SET1/5c.py)
-- [Chi Squared with error](./er.py)
+- [Chi squared with error](./er.py)
