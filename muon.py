@@ -5,7 +5,7 @@ def f(t,a,b,c):
     return b*exp(-t/a)+c
 
 nbins=500
-file=loadtxt("file.txt")
+file=loadtxt("muon.data")
 t=file[:,0]
 tl=[]
 for i in range(len(t)):
