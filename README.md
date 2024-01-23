@@ -14,3 +14,6 @@ PG Lab II `python` code.
     - [5.(b)](./SET1/5b.py)
     - [5.(c)](./SET1/5c.py)
 - [Chi squared with error](./er.py)
+- Muon
+  - Software [Working]: [Muon Physics](https://github.com/sahashirshendu/muon)
+  - Original Software: [Muon Physics](http://www.physics.smu.edu/coan/muon/muon_data)
